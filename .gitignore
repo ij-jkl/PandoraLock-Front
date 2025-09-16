@@ -1,17 +1,27 @@
-# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+# All probable things that should be ignored in an Angular + .NET project
 
-# Compiled output
+# ----------------------
+# Compiled output / build
+# ----------------------
 /dist
 /tmp
 /out-tsc
 /bazel-out
+/aot
+/.ionic
 
-# Node
+# ----------------------
+# Node / Angular
+# ----------------------
 /node_modules
-npm-debug.log
-yarn-error.log
+npm-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
 
+# ----------------------
 # IDEs and editors
+# ----------------------
 .idea/
 .project
 .classpath
@@ -20,23 +30,64 @@ yarn-error.log
 .settings/
 *.sublime-workspace
 
+# ----------------------
 # Visual Studio Code
+# ----------------------
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
-.history/*
+/.history/*
 
-# Miscellaneous
-/.angular/cache
-.sass-cache/
+# ----------------------
+# Angular / Web temp/cache
+# ----------------------
+/.angular/cache/
+/coverage/
+/tmp/
+/sass-cache/
 /connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
+/typings/
+/ngsw-worker.js
+/ngsw.json
 
+# ----------------------
 # System files
+# ----------------------
 .DS_Store
 Thumbs.db
+
+# ----------------------
+# Environment / secret keys
+# ----------------------
+.env
+*.env
+
+# ----------------------
+# .NET backend
+# ----------------------
+/bin/
+/obj/
+*.user
+*.suo
+*.pdb
+*.cache
+*.log
+
+# ----------------------
+# Docker / containers
+# ----------------------
+docker-compose.override.yml
+*.dockerignore
+
+# ----------------------
+# Local storage (temporary files)
+# ----------------------
+/storage/*
+!/storage/.gitkeep
+
+# ----------------------
+# Redis / cache files (if any local dumps)
+# ----------------------
+/redis-data/*

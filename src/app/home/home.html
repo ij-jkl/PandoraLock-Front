@@ -1,0 +1,53 @@
+<div class="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100 flex items-center justify-center px-6">
+  <div class="max-w-3xl mx-auto text-center">
+
+    <div class="flex items-center justify-center space-x-4 mb-10">
+      <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-800 rounded-xl flex items-center justify-center">
+        <svg class="w-9 h-9 text-white" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z"/>
+          <path fill-rule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clip-rule="evenodd"/>
+        </svg>
+      </div>
+      <h1 class="text-4xl font-bold text-slate-800">PandoraLock</h1>
+    </div>
+
+    <h2 class="text-5xl md:text-6xl font-bold text-slate-900 mb-8">
+      Your Files,
+      <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">
+        Secured
+      </span>
+    </h2>
+
+    <p class="text-2xl text-slate-600 mb-14 leading-relaxed">
+      Store and share your files with enterprise-grade security. End-to-end encryption ensures only you can access your data.
+    </p>
+
+    <div class="space-y-6">
+      <div class="text-xl text-slate-700 mb-8">
+        New user? Get started today
+      </div>
+
+      <div class="flex flex-col sm:flex-row gap-6 justify-center">
+        <button
+          (click)="onRegister()"
+          class="bg-blue-600 text-white px-10 py-5 rounded-lg text-xl font-semibold hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl">
+          Create Account
+        </button>
+
+        <button
+          (click)="onLogin()"
+          class="border-2 border-slate-300 text-slate-700 px-10 py-5 rounded-lg text-xl font-semibold hover:bg-slate-100 transition-all duration-300">
+          Sign In
+        </button>
+      </div>
+    </div>
+
+    <div class="mt-16 flex items-center justify-center space-x-3 text-slate-500">
+      <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+      </svg>
+      <span class="text-base font-medium">256-bit AES encryption</span>
+    </div>
+
+  </div>
+</div>

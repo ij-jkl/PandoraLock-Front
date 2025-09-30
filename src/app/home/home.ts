@@ -14,6 +14,6 @@ export class HomeComponent {
   }
 
   onLogin() {
-    console.log('Login clicked');
+    this.router.navigate(['/signin']);
   }
 }

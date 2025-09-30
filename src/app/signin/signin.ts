@@ -63,6 +63,10 @@ export class SigninComponent {
     this.router.navigate(['/register']);
   }
 
+  goToForgotPassword() {
+    this.router.navigate(['/forgot-password']);
+  }
+
   private markFormGroupTouched() {
     Object.keys(this.signinForm.controls).forEach(key => {
       const control = this.signinForm.get(key);

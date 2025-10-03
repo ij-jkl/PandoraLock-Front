@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { UserService } from '../shared/services/user.service';
 
 @Component({
   selector: 'app-signin',
@@ -15,7 +16,11 @@ export class SigninComponent {
   isLoading = false;
   errorMessage = '';
 
-  constructor(private fb: FormBuilder, private router: Router) {
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private userService: UserService
+  ) {
     this.signinForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
@@ -35,25 +40,24 @@ export class SigninComponent {
       this.isLoading = true;
       this.errorMessage = '';
 
-      // Simular autenticación
-      setTimeout(() => {
-        const formData = this.signinForm.value;
+      const credentials = {
+        usernameOrEmail: this.signinForm.value.email,
+        password: this.signinForm.value.password
+      };
 
-        // Aquí iría la lógica de autenticación real
-        console.log('Signin data:', formData);
-
-        // Simular respuesta exitosa o error
-        const mockSuccess = Math.random() > 0.3; // 70% de éxito
-
-        if (mockSuccess) {
-          console.log('Signin successful');
-          this.router.navigate(['/home']);
-        } else {
-          this.errorMessage = 'Invalid email or password. Please try again.';
+      this.userService.login(credentials).subscribe({
+        next: (response) => {
+          console.log('Signin successful:', response);
+          localStorage.setItem('user', JSON.stringify(response.response));
+          this.isLoading = false;
+          this.router.navigate(['/']);
+        },
+        error: (error) => {
+          console.error('Signin error:', error);
+          this.isLoading = false;
+          this.errorMessage = error.error?.message || 'Invalid email or password. Please try again.';
         }
-
-        this.isLoading = false;
-      }, 1500);
+      });
     } else {
       this.markFormGroupTouched();
     }
